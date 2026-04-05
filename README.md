@@ -18,4 +18,6 @@ See individual agent directories for license information.
 
 ## Author
 
-[sawyer-shi](https://github.com/sawyer-shi) - sawyer36@foxmail.com
+- GitHub: [sawyer-shi](https://github.com/sawyer-shi)
+- Email: sawyer36@foxmail.com
+- Project: [https://github.com/sawyer-shi/awsome-dify-agents](https://github.com/sawyer-shi/awsome-dify-agents)

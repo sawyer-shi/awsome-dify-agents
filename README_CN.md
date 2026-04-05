@@ -17,4 +17,6 @@
 
 ## 作者
 
-[sawyer-shi](https://github.com/sawyer-shi) - sawyer36@foxmail.com
+- GitHub: [sawyer-shi](https://github.com/sawyer-shi)
+- 邮箱: sawyer36@foxmail.com
+- 项目地址: [https://github.com/sawyer-shi/awsome-dify-agents](https://github.com/sawyer-shi/awsome-dify-agents)
