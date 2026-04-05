@@ -1,6 +1,6 @@
 # Awesome Dify Agents
 
-A collection of open-source, production-ready Dify Agents providing powerful capabilities for various use cases.
+[A collection of open-source, production-ready Dify Agents](https://github.com/sawyer-shi/awsome-dify-agents) by [sawyer-shi](https://github.com/sawyer-shi) (sawyer36@foxmail.com) providing powerful capabilities for various use cases.
 
 ## Overview
 
