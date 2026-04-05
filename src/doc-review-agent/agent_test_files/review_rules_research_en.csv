@@ -1,0 +1,7 @@
+﻿rule_code,rule_name,rule_level,rule_prompt,category
+R-SEC-001,Data Privacy Scope,high,"Check whether personal or sensitive data collection has explicit scope, legal basis, and minimization controls.",compliance
+R-SEC-002,Access Governance,high,"Check whether role-based access, least privilege, and account revocation workflow are defined and enforceable.",security
+R-GOV-003,Policy Traceability,high,Check whether policy rules can be traced to runtime decisions with auditable records.,governance
+R-MTH-004,Method Reproducibility,medium,"Check whether methodology includes clear steps, parameter ranges, and evaluation setup.",quality
+R-EVD-005,Evidence and Claims,medium,"Check whether key claims are supported by quantitative evidence, baselines, and limitations.",quality
+R-WRT-006,Academic Tone and Precision,low,"Check whether wording remains objective, precise, and avoids unsupported absolute statements.",writing

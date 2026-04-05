@@ -1,0 +1,1542 @@
+app:
+  description: Document Review – Multi-threaded Processing Mode
+  icon: 2df6798d-88ec-417e-b9fb-6c489ced1b3a
+  icon_background: null
+  icon_type: image
+  mode: workflow
+  name: Document Review – Multi-threaded Processing Mode
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: sawyer-shi/doc-review-agent:0.0.1@906e2127bad25c9fd34c4817ae1c9e90d2eae0f1396a0c83835ff6a521dd7454
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1775395138765-source-1775395182384-target
+      source: '1775395138765'
+      sourceHandle: source
+      target: '1775395182384'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1775395138765-source-1775395196138-target
+      source: '1775395138765'
+      sourceHandle: source
+      target: '1775395196138'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1775395182384-source-1775395214258-target
+      source: '1775395182384'
+      sourceHandle: source
+      target: '1775395214258'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1775395196138-source-1775395214258-target
+      source: '1775395196138'
+      sourceHandle: source
+      target: '1775395214258'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1775395214258-source-1775395236450-target
+      source: '1775395214258'
+      sourceHandle: source
+      target: '1775395236450'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1775395236450-source-1775395246807-target
+      source: '1775395236450'
+      sourceHandle: source
+      target: '1775395246807'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1775395246807-source-1775395264732-target
+      source: '1775395246807'
+      sourceHandle: source
+      target: '1775395264732'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1775395246807-source-1775395251277-target
+      source: '1775395246807'
+      sourceHandle: source
+      target: '1775395251277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1775395264732-source-1775395277834-target
+      source: '1775395264732'
+      sourceHandle: source
+      target: '1775395277834'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: doc_file
+          options: []
+          placeholder: ''
+          required: true
+          type: file
+          variable: doc_file
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: rule_excel_csv_file
+          options: []
+          placeholder: ''
+          required: true
+          type: file
+          variable: rule_excel_csv_file
+      height: 135
+      id: '1775395138765'
+      position:
+        x: 44.6804920892271
+        y: 251
+      positionAbsolute:
+        x: 44.6804920892271
+        y: 251
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The LLM model to use for parsing.
+            ja_JP: The LLM model to use for parsing.
+            pt_BR: The LLM model to use for parsing.
+            zh_Hans: 用于解析的 LLM 模型。
+          label:
+            en_US: LLM Model
+            ja_JP: LLM Model
+            pt_BR: LLM Model
+            zh_Hans: LLM 模型
+          llm_description: The LLM model to use for parsing.
+          max: null
+          min: null
+          name: model_config
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: llm
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The document file to parse (docx only).
+            ja_JP: The document file to parse (docx only).
+            pt_BR: The document file to parse (docx only).
+            zh_Hans: 要解析的文档文件（仅 docx）。
+          label:
+            en_US: File
+            ja_JP: File
+            pt_BR: File
+            zh_Hans: 上传文件
+          llm_description: The document file to parse.
+          max: null
+          min: null
+          name: upload_file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: file
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: 'Controls how chunks are split before review.
+
+              - Default: current behavior, accumulate paragraphs by max_chunk_chars.
+
+              - by_heading: start new chunk on heading-like lines, plus max_chunk_chars
+              guard.
+
+              - by_article: start new chunk on article/clause-like lines, plus max_chunk_chars
+              guard.
+
+              - by_paragraph: one paragraph per chunk (long paragraph is hard-split
+              by max_chunk_chars).
+
+              - by_sentence: sentence-level grouping, then pack by max_chunk_chars.
+
+              - hybrid: split on heading OR article boundaries, then apply max_chunk_chars.'
+            ja_JP: 'Controls how chunks are split before review.
+
+              - Default: current behavior, accumulate paragraphs by max_chunk_chars.
+
+              - by_heading: start new chunk on heading-like lines, plus max_chunk_chars
+              guard.
+
+              - by_article: start new chunk on article/clause-like lines, plus max_chunk_chars
+              guard.
+
+              - by_paragraph: one paragraph per chunk (long paragraph is hard-split
+              by max_chunk_chars).
+
+              - by_sentence: sentence-level grouping, then pack by max_chunk_chars.
+
+              - hybrid: split on heading OR article boundaries, then apply max_chunk_chars.'
+            pt_BR: 'Controls how chunks are split before review.
+
+              - Default: current behavior, accumulate paragraphs by max_chunk_chars.
+
+              - by_heading: start new chunk on heading-like lines, plus max_chunk_chars
+              guard.
+
+              - by_article: start new chunk on article/clause-like lines, plus max_chunk_chars
+              guard.
+
+              - by_paragraph: one paragraph per chunk (long paragraph is hard-split
+              by max_chunk_chars).
+
+              - by_sentence: sentence-level grouping, then pack by max_chunk_chars.
+
+              - hybrid: split on heading OR article boundaries, then apply max_chunk_chars.'
+            zh_Hans: '控制审核前的切片方式。
+
+              - 默认：沿用当前逻辑，按段落累加并受 max_chunk_chars 限制。
+
+              - by_heading：遇到“标题样式”段落优先断块，再受 max_chunk_chars 限制。
+
+              - by_article：遇到“条款样式”段落优先断块，再受 max_chunk_chars 限制。
+
+              - by_paragraph：一段一片（超长段会按 max_chunk_chars 再切分）。
+
+              - by_sentence：按句子切分后再按 max_chunk_chars 聚合。
+
+              - hybrid：标题边界或条款边界任一命中即断块，再受 max_chunk_chars 限制。'
+          label:
+            en_US: Slice Strategy
+            ja_JP: Slice Strategy
+            pt_BR: Slice Strategy
+            zh_Hans: 切片策略
+          llm_description: 'Select chunk splitting strategy: default/by_heading/by_article/by_paragraph/by_sentence/hybrid.'
+          max: null
+          min: null
+          name: slice_strategy
+          options:
+          - icon: ''
+            label:
+              en_US: Default
+              ja_JP: Default
+              pt_BR: Default
+              zh_Hans: 默认
+            value: ''
+          - icon: ''
+            label:
+              en_US: By Heading
+              ja_JP: By Heading
+              pt_BR: By Heading
+              zh_Hans: 按标题
+            value: by_heading
+          - icon: ''
+            label:
+              en_US: By Article
+              ja_JP: By Article
+              pt_BR: By Article
+              zh_Hans: 按条款
+            value: by_article
+          - icon: ''
+            label:
+              en_US: By Paragraph
+              ja_JP: By Paragraph
+              pt_BR: By Paragraph
+              zh_Hans: 按段落
+            value: by_paragraph
+          - icon: ''
+            label:
+              en_US: By Sentence
+              ja_JP: By Sentence
+              pt_BR: By Sentence
+              zh_Hans: 按句子
+            value: by_sentence
+          - icon: ''
+            label:
+              en_US: Hybrid
+              ja_JP: Hybrid
+              pt_BR: Hybrid
+              zh_Hans: 混合
+            value: hybrid
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 1200
+          form: llm
+          human_description:
+            en_US: Suggested max characters per chunk.
+            ja_JP: Suggested max characters per chunk.
+            pt_BR: Suggested max characters per chunk.
+            zh_Hans: 每个切片的建议最大字符数。
+          label:
+            en_US: Max Chunk Chars
+            ja_JP: Max Chunk Chars
+            pt_BR: Max Chunk Chars
+            zh_Hans: 切片最大字符数
+          llm_description: Suggested max characters per chunk.
+          max: null
+          min: null
+          name: max_chunk_chars
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        params:
+          max_chunk_chars: ''
+          model_config: ''
+          slice_strategy: ''
+          upload_file: ''
+        plugin_id: sawyer-shi/doc-review-agent
+        plugin_unique_identifier: sawyer-shi/doc-review-agent:0.0.1@906e2127bad25c9fd34c4817ae1c9e90d2eae0f1396a0c83835ff6a521dd7454
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=845c4965-7f81-4299-b877-276ac4792c36&filename=ce1b876bd3c4c4d573f10a4cfbebfc84a1b88d405af0c5c45702394a6022f49c.svg
+        provider_id: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_name: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_type: builtin
+        selected: false
+        title: 1.Doc Slice Parser
+        tool_configurations:
+          model_config:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: glm-4.7
+              model_type: llm
+              provider: langgenius/zhipuai/zhipuai
+        tool_description: Parse and slice a document into review chunks using LLM
+          guidance.
+        tool_label: 1.Doc Slice Parser
+        tool_name: doc_slice_parser
+        tool_node_version: '2'
+        tool_parameters:
+          max_chunk_chars:
+            type: constant
+            value: 1200
+          slice_strategy:
+            type: constant
+            value: ''
+          upload_file:
+            type: variable
+            value:
+            - '1775395138765'
+            - doc_file
+        type: tool
+      height: 88
+      id: '1775395182384'
+      position:
+        x: 433
+        y: 207
+      positionAbsolute:
+        x: 433
+        y: 207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Upload a rules file in .xlsx or .csv format.
+            ja_JP: Upload a rules file in .xlsx or .csv format.
+            pt_BR: Upload a rules file in .xlsx or .csv format.
+            zh_Hans: 上传 .xlsx 或 .csv 规则文件。
+          label:
+            en_US: Rules File
+            ja_JP: Rules File
+            pt_BR: Rules File
+            zh_Hans: 规则文件
+          llm_description: Rules file in .xlsx or .csv format.
+          max: null
+          min: null
+          name: rules_file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: file
+        params:
+          rules_file: ''
+        plugin_id: sawyer-shi/doc-review-agent
+        plugin_unique_identifier: sawyer-shi/doc-review-agent:0.0.1@906e2127bad25c9fd34c4817ae1c9e90d2eae0f1396a0c83835ff6a521dd7454
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=845c4965-7f81-4299-b877-276ac4792c36&filename=ce1b876bd3c4c4d573f10a4cfbebfc84a1b88d405af0c5c45702394a6022f49c.svg
+        provider_id: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_name: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_type: builtin
+        selected: false
+        title: 2.Rule Loader
+        tool_configurations: {}
+        tool_description: Load review rules from xlsx/csv without model filtering.
+        tool_label: 2.Rule Loader
+        tool_name: rule_loader
+        tool_node_version: '2'
+        tool_parameters:
+          rules_file:
+            type: variable
+            value:
+            - '1775395138765'
+            - rule_excel_csv_file
+        type: tool
+      height: 52
+      id: '1775395196138'
+      position:
+        x: 433
+        y: 337
+      positionAbsolute:
+        x: 433
+        y: 337
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The LLM model to use for auditing.
+            ja_JP: The LLM model to use for auditing.
+            pt_BR: The LLM model to use for auditing.
+            zh_Hans: 用于审核的 LLM 模型。
+          label:
+            en_US: LLM Model
+            ja_JP: LLM Model
+            pt_BR: LLM Model
+            zh_Hans: LLM 模型
+          llm_description: The LLM model to use for auditing.
+          max: null
+          min: null
+          name: model_config
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: llm
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Text output from doc_slice_parser (JSON string).
+            ja_JP: Text output from doc_slice_parser (JSON string).
+            pt_BR: Text output from doc_slice_parser (JSON string).
+            zh_Hans: 来自 doc_slice_parser 的 text 输出（JSON 字符串）。
+          label:
+            en_US: Doc Slices Text
+            ja_JP: Doc Slices Text
+            pt_BR: Doc Slices Text
+            zh_Hans: 切片结果文本
+          llm_description: Text output from doc_slice_parser (JSON string).
+          max: null
+          min: null
+          name: doc_slices_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Text output from rule_loader (JSON string).
+            ja_JP: Text output from rule_loader (JSON string).
+            pt_BR: Text output from rule_loader (JSON string).
+            zh_Hans: 来自 rule_loader 的 text 输出（JSON 字符串）。
+          label:
+            en_US: Rules Text
+            ja_JP: Rules Text
+            pt_BR: Rules Text
+            zh_Hans: 规则结果文本
+          llm_description: Text output from rule_loader (JSON string).
+          max: null
+          min: null
+          name: rules_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional extra hint. For example, "I am the first party" or "I
+              am the second party".
+            ja_JP: Optional extra hint. For example, "I am the first party" or "I
+              am the second party".
+            pt_BR: Optional extra hint. For example, "I am the first party" or "I
+              am the second party".
+            zh_Hans: 可选额外提示(例如：我是甲方 或 我是乙方)。
+          label:
+            en_US: Extra Hint
+            ja_JP: Extra Hint
+            pt_BR: Extra Hint
+            zh_Hans: 额外提示
+          llm_description: Optional extra hint.
+          max: null
+          min: null
+          name: extra_hint
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: auto
+          form: llm
+          human_description:
+            en_US: Output language. auto means detect from document text.
+            ja_JP: Output language. auto means detect from document text.
+            pt_BR: Output language. auto means detect from document text.
+            zh_Hans: 输出语言。auto 表示根据文档文本自动识别。
+          label:
+            en_US: Output Language
+            ja_JP: Output Language
+            pt_BR: Output Language
+            zh_Hans: 输出语言
+          llm_description: Output language. auto means detect from document text.
+          max: null
+          min: null
+          name: output_language
+          options:
+          - icon: ''
+            label:
+              en_US: Chinese
+              ja_JP: Chinese
+              pt_BR: Chinese
+              zh_Hans: 中文
+            value: zh
+          - icon: ''
+            label:
+              en_US: English
+              ja_JP: English
+              pt_BR: English
+              zh_Hans: 英文
+            value: en
+          - icon: ''
+            label:
+              en_US: Auto Detect
+              ja_JP: Auto Detect
+              pt_BR: Auto Detect
+              zh_Hans: 自动识别
+            value: auto
+          - icon: ''
+            label:
+              en_US: Japanese
+              ja_JP: Japanese
+              pt_BR: Japanese
+              zh_Hans: 日文
+            value: ja
+          - icon: ''
+            label:
+              en_US: Korean
+              ja_JP: Korean
+              pt_BR: Korean
+              zh_Hans: 韩文
+            value: ko
+          - icon: ''
+            label:
+              en_US: Spanish
+              ja_JP: Spanish
+              pt_BR: Spanish
+              zh_Hans: 西班牙文
+            value: es
+          - icon: ''
+            label:
+              en_US: French
+              ja_JP: French
+              pt_BR: French
+              zh_Hans: 法文
+            value: fr
+          - icon: ''
+            label:
+              en_US: German
+              ja_JP: German
+              pt_BR: German
+              zh_Hans: 德文
+            value: de
+          - icon: ''
+            label:
+              en_US: Portuguese
+              ja_JP: Portuguese
+              pt_BR: Portuguese
+              zh_Hans: 葡萄牙文
+            value: pt
+          - icon: ''
+            label:
+              en_US: Russian
+              ja_JP: Russian
+              pt_BR: Russian
+              zh_Hans: 俄文
+            value: ru
+          - icon: ''
+            label:
+              en_US: Arabic
+              ja_JP: Arabic
+              pt_BR: Arabic
+              zh_Hans: 阿拉伯文
+            value: ar
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 1
+          form: llm
+          human_description:
+            en_US: Number of worker threads for chunk grouping. Defaults to 1.
+            ja_JP: Number of worker threads for chunk grouping. Defaults to 1.
+            pt_BR: Number of worker threads for chunk grouping. Defaults to 1.
+            zh_Hans: 用于切片分组处理的高并发线程数(基于机器性能和任务复杂度设置)，默认值为 1。
+          label:
+            en_US: Thread Number
+            ja_JP: Thread Number
+            pt_BR: Thread Number
+            zh_Hans: 并发处理线程数
+          llm_description: Number of worker threads for chunk grouping. Defaults to
+            1.
+          max: null
+          min: null
+          name: thread_num
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          doc_slices_text: ''
+          extra_hint: ''
+          model_config: ''
+          output_language: ''
+          rules_text: ''
+          thread_num: ''
+        plugin_id: sawyer-shi/doc-review-agent
+        plugin_unique_identifier: sawyer-shi/doc-review-agent:0.0.1@906e2127bad25c9fd34c4817ae1c9e90d2eae0f1396a0c83835ff6a521dd7454
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=845c4965-7f81-4299-b877-276ac4792c36&filename=ce1b876bd3c4c4d573f10a4cfbebfc84a1b88d405af0c5c45702394a6022f49c.svg
+        provider_id: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_name: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_type: builtin
+        selected: false
+        title: 3.Chunk Auditor--Multi-threaded
+        tool_configurations:
+          model_config:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: glm-4.7
+              model_type: llm
+              provider: langgenius/zhipuai/zhipuai
+        tool_description: Audit all chunks against all rules (double loop) from text
+          inputs.
+        tool_label: 3.Chunk Auditor--Multi-threaded
+        tool_name: chunk_auditor
+        tool_node_version: '2'
+        tool_parameters:
+          doc_slices_text:
+            type: mixed
+            value: '{{#1775395182384.text#}}'
+          extra_hint:
+            type: mixed
+            value: null
+          output_language:
+            type: constant
+            value: auto
+          rules_text:
+            type: mixed
+            value: '{{#1775395196138.text#}}'
+          thread_num:
+            type: constant
+            value: 5
+        type: tool
+      height: 88
+      id: '1775395214258'
+      position:
+        x: 837.6804920892271
+        y: 272
+      positionAbsolute:
+        x: 837.6804920892271
+        y: 272
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The LLM model to use for aggregation.
+            ja_JP: The LLM model to use for aggregation.
+            pt_BR: The LLM model to use for aggregation.
+            zh_Hans: 用于聚合的 LLM 模型。
+          label:
+            en_US: LLM Model
+            ja_JP: LLM Model
+            pt_BR: LLM Model
+            zh_Hans: LLM 模型
+          llm_description: The LLM model to use for aggregation.
+          max: null
+          min: null
+          name: model_config
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: llm
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Raw audit results from multiple chunks.
+            ja_JP: Raw audit results from multiple chunks.
+            pt_BR: Raw audit results from multiple chunks.
+            zh_Hans: 多个切片的原始审核结果。
+          label:
+            en_US: Raw Results
+            ja_JP: Raw Results
+            pt_BR: Raw Results
+            zh_Hans: 原始结果
+          llm_description: Raw audit results from multiple chunks.
+          max: null
+          min: null
+          name: raw_results
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: dedupe_by_rule_code_quote_location
+          form: llm
+          human_description:
+            en_US: 'Controls how duplicate risks are merged.
+
+              - dedupe_by_rule_code_quote_location: same rule+quote but different
+              locations are kept separate (safest for annotation).
+
+              - dedupe_by_rule_code_quote: merge same rule+quote across locations.
+
+              - dedupe_by_quote: merge by quote only, regardless of rule.
+
+              - dedupe_by_rule_code: merge all hits under same rule code.
+
+              - dedupe_by_chunk_rule: merge hits by chunk_id + rule code.
+
+              - no_dedupe: keep every hit.'
+            ja_JP: 'Controls how duplicate risks are merged.
+
+              - dedupe_by_rule_code_quote_location: same rule+quote but different
+              locations are kept separate (safest for annotation).
+
+              - dedupe_by_rule_code_quote: merge same rule+quote across locations.
+
+              - dedupe_by_quote: merge by quote only, regardless of rule.
+
+              - dedupe_by_rule_code: merge all hits under same rule code.
+
+              - dedupe_by_chunk_rule: merge hits by chunk_id + rule code.
+
+              - no_dedupe: keep every hit.'
+            pt_BR: 'Controls how duplicate risks are merged.
+
+              - dedupe_by_rule_code_quote_location: same rule+quote but different
+              locations are kept separate (safest for annotation).
+
+              - dedupe_by_rule_code_quote: merge same rule+quote across locations.
+
+              - dedupe_by_quote: merge by quote only, regardless of rule.
+
+              - dedupe_by_rule_code: merge all hits under same rule code.
+
+              - dedupe_by_chunk_rule: merge hits by chunk_id + rule code.
+
+              - no_dedupe: keep every hit.'
+            zh_Hans: '控制重复风险如何合并。
+
+              - dedupe_by_rule_code_quote_location：同规则+同引用但不同位置不合并（最适合批注）。
+
+              - dedupe_by_rule_code_quote：同规则+同引用跨位置合并。
+
+              - dedupe_by_quote：仅按引用文本合并，不区分规则。
+
+              - dedupe_by_rule_code：同一规则下全部命中合并。
+
+              - dedupe_by_chunk_rule：按 chunk_id + rule_code 合并。
+
+              - no_dedupe：不去重，保留全部命中。'
+          label:
+            en_US: Merge Policy
+            ja_JP: Merge Policy
+            pt_BR: Merge Policy
+            zh_Hans: 合并策略
+          llm_description: Merge policy for dedupe and conflict resolution among risk
+            hits.
+          max: null
+          min: null
+          name: merge_policy
+          options:
+          - icon: ''
+            label:
+              en_US: Rule+Quote+Location (recommended)
+              ja_JP: Rule+Quote+Location (recommended)
+              pt_BR: Rule+Quote+Location (recommended)
+              zh_Hans: 规则+引用+位置（推荐）
+            value: dedupe_by_rule_code_quote_location
+          - icon: ''
+            label:
+              en_US: Rule+Quote (recommended)
+              ja_JP: Rule+Quote (recommended)
+              pt_BR: Rule+Quote (recommended)
+              zh_Hans: 规则+引用（推荐）
+            value: dedupe_by_rule_code_quote
+          - icon: ''
+            label:
+              en_US: Quote only
+              ja_JP: Quote only
+              pt_BR: Quote only
+              zh_Hans: 仅按引用去重
+            value: dedupe_by_quote
+          - icon: ''
+            label:
+              en_US: Rule only
+              ja_JP: Rule only
+              pt_BR: Rule only
+              zh_Hans: 仅按规则去重
+            value: dedupe_by_rule_code
+          - icon: ''
+            label:
+              en_US: Chunk+Rule
+              ja_JP: Chunk+Rule
+              pt_BR: Chunk+Rule
+              zh_Hans: 按切片+规则去重
+            value: dedupe_by_chunk_rule
+          - icon: ''
+            label:
+              en_US: No dedupe
+              ja_JP: No dedupe
+              pt_BR: No dedupe
+              zh_Hans: 不去重
+            value: no_dedupe
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          merge_policy: ''
+          model_config: ''
+          raw_results: ''
+        plugin_id: sawyer-shi/doc-review-agent
+        plugin_unique_identifier: sawyer-shi/doc-review-agent:0.0.1@906e2127bad25c9fd34c4817ae1c9e90d2eae0f1396a0c83835ff6a521dd7454
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=845c4965-7f81-4299-b877-276ac4792c36&filename=ce1b876bd3c4c4d573f10a4cfbebfc84a1b88d405af0c5c45702394a6022f49c.svg
+        provider_id: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_name: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_type: builtin
+        selected: false
+        title: 4.Risk Aggregator
+        tool_configurations:
+          model_config:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: glm-4.7
+              model_type: llm
+              provider: langgenius/zhipuai/zhipuai
+        tool_description: Aggregate risks by matched rule_code and quote.
+        tool_label: 4.Risk Aggregator
+        tool_name: risk_aggregator
+        tool_node_version: '2'
+        tool_parameters:
+          merge_policy:
+            type: constant
+            value: dedupe_by_rule_code_quote_location
+          raw_results:
+            type: mixed
+            value: '{{#1775395214258.text#}}'
+        type: tool
+      height: 88
+      id: '1775395236450'
+      position:
+        x: 1229.680492089227
+        y: 272
+      positionAbsolute:
+        x: 1229.680492089227
+        y: 272
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The LLM model to use for annotations.
+            ja_JP: The LLM model to use for annotations.
+            pt_BR: The LLM model to use for annotations.
+            zh_Hans: 用于批注生成的 LLM 模型。
+          label:
+            en_US: LLM Model
+            ja_JP: LLM Model
+            pt_BR: LLM Model
+            zh_Hans: LLM 模型
+          llm_description: The LLM model to use for annotations.
+          max: null
+          min: null
+          name: model_config
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: llm
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The original document file (docx only).
+            ja_JP: The original document file (docx only).
+            pt_BR: The original document file (docx only).
+            zh_Hans: 原始文档文件（仅 docx）。
+          label:
+            en_US: Original Document File
+            ja_JP: Original Document File
+            pt_BR: Original Document File
+            zh_Hans: 上传原始文档文件
+          llm_description: The original document file.
+          max: null
+          min: null
+          name: upload_file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: file
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The aggregated audit report JSON.
+            ja_JP: The aggregated audit report JSON.
+            pt_BR: The aggregated audit report JSON.
+            zh_Hans: 聚合后的审核报告 JSON。
+          label:
+            en_US: Audit Report
+            ja_JP: Audit Report
+            pt_BR: Audit Report
+            zh_Hans: 审核报告
+          llm_description: The aggregated audit report JSON.
+          max: null
+          min: null
+          name: audit_report
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: comment
+          form: llm
+          human_description:
+            en_US: comment only.
+            ja_JP: comment only.
+            pt_BR: comment only.
+            zh_Hans: 仅支持 comment。
+          label:
+            en_US: Annotation Style
+            ja_JP: Annotation Style
+            pt_BR: Annotation Style
+            zh_Hans: 批注风格
+          llm_description: Annotation style.
+          max: null
+          min: null
+          name: annotation_style
+          options:
+          - icon: ''
+            label:
+              en_US: Comment
+              ja_JP: Comment
+              pt_BR: Comment
+              zh_Hans: 批注
+            value: comment
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The output file name without extension.
+            ja_JP: The output file name without extension.
+            pt_BR: The output file name without extension.
+            zh_Hans: 输出文件名（不含扩展名）。
+          label:
+            en_US: Output File Name
+            ja_JP: Output File Name
+            pt_BR: Output File Name
+            zh_Hans: 输出文件名
+          llm_description: The output file name without extension.
+          max: null
+          min: null
+          name: output_file_name
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          annotation_style: ''
+          audit_report: ''
+          model_config: ''
+          output_file_name: ''
+          upload_file: ''
+        plugin_id: sawyer-shi/doc-review-agent
+        plugin_unique_identifier: sawyer-shi/doc-review-agent:0.0.1@906e2127bad25c9fd34c4817ae1c9e90d2eae0f1396a0c83835ff6a521dd7454
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=845c4965-7f81-4299-b877-276ac4792c36&filename=ce1b876bd3c4c4d573f10a4cfbebfc84a1b88d405af0c5c45702394a6022f49c.svg
+        provider_id: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_name: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_type: builtin
+        selected: false
+        title: 5.Doc Annotator
+        tool_configurations:
+          model_config:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: glm-4.7
+              model_type: llm
+              provider: langgenius/zhipuai/zhipuai
+        tool_description: Generate native Word comments in format [rule_code][severity]
+          text.
+        tool_label: 5.Doc Annotator
+        tool_name: doc_annotator
+        tool_node_version: '2'
+        tool_parameters:
+          annotation_style:
+            type: constant
+            value: comment
+          audit_report:
+            type: mixed
+            value: '{{#1775395236450.text#}}'
+          output_file_name:
+            type: mixed
+            value: null
+          upload_file:
+            type: variable
+            value:
+            - '1775395138765'
+            - doc_file
+        type: tool
+      height: 88
+      id: '1775395246807'
+      position:
+        x: 1607
+        y: 272
+      positionAbsolute:
+        x: 1607
+        y: 272
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1775395246807'
+          - text
+          value_type: string
+          variable: text
+        - value_selector:
+          - '1775395246807'
+          - json
+          value_type: array[object]
+          variable: json
+        - value_selector:
+          - '1775395246807'
+          - files
+          value_type: array[file]
+          variable: files
+        selected: false
+        title: Output--Annotator
+        type: end
+      height: 140
+      id: '1775395251277'
+      position:
+        x: 2007.6098417845424
+        y: 272
+      positionAbsolute:
+        x: 2007.6098417845424
+        y: 272
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The LLM model to use for semantic merge/selection.
+            ja_JP: The LLM model to use for semantic merge/selection.
+            pt_BR: The LLM model to use for semantic merge/selection.
+            zh_Hans: 用于语义合并/选择的 LLM 模型。
+          label:
+            en_US: LLM Model
+            ja_JP: LLM Model
+            pt_BR: LLM Model
+            zh_Hans: LLM 模型
+          llm_description: The LLM model to use for semantic merge/selection.
+          max: null
+          min: null
+          name: model_config
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: llm
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The docx file generated by doc_annotator.
+            ja_JP: The docx file generated by doc_annotator.
+            pt_BR: The docx file generated by doc_annotator.
+            zh_Hans: 来自 doc_annotator 的 docx 文件。
+          label:
+            en_US: Annotated Document File
+            ja_JP: Annotated Document File
+            pt_BR: Annotated Document File
+            zh_Hans: 上传批注后的文档文件
+          llm_description: The docx file generated by doc_annotator.
+          max: null
+          min: null
+          name: upload_file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: file
+        - auto_generate: null
+          default: keep_highest_risk
+          form: llm
+          human_description:
+            en_US: Strategy used only when the same original text has multiple risk
+              comments.
+            ja_JP: Strategy used only when the same original text has multiple risk
+              comments.
+            pt_BR: Strategy used only when the same original text has multiple risk
+              comments.
+            zh_Hans: 仅在同一段原文存在多个风险批注时生效的合并策略。
+          label:
+            en_US: Merge Strategy
+            ja_JP: Merge Strategy
+            pt_BR: Merge Strategy
+            zh_Hans: 批注合并策略
+          llm_description: Strategy for handling multiple comments on same original
+            text.
+          max: null
+          min: null
+          name: merge_strategy
+          options:
+          - icon: ''
+            label:
+              en_US: Keep Highest Risk
+              ja_JP: Keep Highest Risk
+              pt_BR: Keep Highest Risk
+              zh_Hans: 按风险等级保留批注
+            value: keep_highest_risk
+          - icon: ''
+            label:
+              en_US: Keep Semantic Best
+              ja_JP: Keep Semantic Best
+              pt_BR: Keep Semantic Best
+              zh_Hans: 按语义理解保留批注
+            value: keep_semantic
+          - icon: ''
+            label:
+              en_US: Semantic Merge
+              ja_JP: Semantic Merge
+              pt_BR: Semantic Merge
+              zh_Hans: 按语义理解综合批注
+            value: merge_semantic
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 'no'
+          form: llm
+          human_description:
+            en_US: no=keep text and refresh comments, yes=apply latest revised text
+              and keep latest comments.
+            ja_JP: no=keep text and refresh comments, yes=apply latest revised text
+              and keep latest comments.
+            pt_BR: no=keep text and refresh comments, yes=apply latest revised text
+              and keep latest comments.
+            zh_Hans: no=仅刷新批注不改原文，yes=按最新批注修改原文并保留最新批注。
+          label:
+            en_US: Apply to Original
+            ja_JP: Apply to Original
+            pt_BR: Apply to Original
+            zh_Hans: 是否修改原文
+          llm_description: Whether to apply latest revision text to original content.
+          max: null
+          min: null
+          name: apply_to_original
+          options:
+          - icon: ''
+            label:
+              en_US: 'No'
+              ja_JP: 'No'
+              pt_BR: 'No'
+              zh_Hans: 否
+            value: 'no'
+          - icon: ''
+            label:
+              en_US: 'Yes'
+              ja_JP: 'Yes'
+              pt_BR: 'Yes'
+              zh_Hans: 是
+            value: 'yes'
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The output file name without extension.
+            ja_JP: The output file name without extension.
+            pt_BR: The output file name without extension.
+            zh_Hans: 输出文件名（不含扩展名）。
+          label:
+            en_US: Output File Name
+            ja_JP: Output File Name
+            pt_BR: Output File Name
+            zh_Hans: 输出文件名
+          llm_description: The output file name without extension.
+          max: null
+          min: null
+          name: output_file_name
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          apply_to_original: ''
+          merge_strategy: ''
+          model_config: ''
+          output_file_name: ''
+          upload_file: ''
+        plugin_id: sawyer-shi/doc-review-agent
+        plugin_unique_identifier: sawyer-shi/doc-review-agent:0.0.1@906e2127bad25c9fd34c4817ae1c9e90d2eae0f1396a0c83835ff6a521dd7454
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=845c4965-7f81-4299-b877-276ac4792c36&filename=ce1b876bd3c4c4d573f10a4cfbebfc84a1b88d405af0c5c45702394a6022f49c.svg
+        provider_id: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_name: sawyer-shi/doc-review-agent/doc-review-agent
+        provider_type: builtin
+        selected: false
+        title: 6.File Revision--Optional Node
+        tool_configurations:
+          model_config:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: glm-4.7
+              model_type: llm
+              provider: langgenius/zhipuai/zhipuai
+        tool_description: Merge overlapping risk comments from doc_annotator output
+          and optionally revise source text while keeping latest comments.
+        tool_label: 6.File Revision--Optional Node
+        tool_name: file_revision
+        tool_node_version: '2'
+        tool_parameters:
+          apply_to_original:
+            type: constant
+            value: 'yes'
+          merge_strategy:
+            type: constant
+            value: keep_highest_risk
+          output_file_name:
+            type: mixed
+            value: null
+          upload_file:
+            type: variable
+            value:
+            - '1775395246807'
+            - files
+        type: tool
+      height: 88
+      id: '1775395264732'
+      position:
+        x: 2007.6098417845424
+        y: 33.55606328618315
+      positionAbsolute:
+        x: 2007.6098417845424
+        y: 33.55606328618315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1775395264732'
+          - text
+          value_type: string
+          variable: last_text
+        - value_selector:
+          - '1775395264732'
+          - json
+          value_type: array[object]
+          variable: last_json
+        - value_selector:
+          - '1775395264732'
+          - files
+          value_type: array[file]
+          variable: last_files
+        selected: false
+        title: Output--Last
+        type: end
+      height: 140
+      id: '1775395277834'
+      position:
+        x: 2367.9293496953146
+        y: 33.55606328618315
+      positionAbsolute:
+        x: 2367.9293496953146
+        y: 33.55606328618315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        author: sawyer
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"To
+          prevent timeouts, you can modify the PLUGIN_MAX_EXECUTION_TIMEOUT parameter
+          to increase the processing time and avoid timeouts!!","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 900
+      height: 88
+      id: '1775395337617'
+      position:
+        x: 844
+        y: 139
+      positionAbsolute:
+        x: 844
+        y: 139
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 900
+    viewport:
+      x: -21.0809831389015
+      y: 205.1784776426914
+      zoom: 0.6597539553864472
+  rag_pipeline_variables: []
