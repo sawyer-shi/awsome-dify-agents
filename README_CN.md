@@ -1,6 +1,6 @@
 # Awesome Dify Agents
 
-一个由 [sawyer-shi](https://github.com/sawyer-shi) (sawyer36@foxmail.com) 收集了多个开源、生产级 Dify Agent 的项目，为各种使用场景提供强大的自动化能力。
+一个收集了多个开源、生产级 Dify Agent 的项目，为各种使用场景提供强大的自动化能力。
 
 ## 概述
 
@@ -14,3 +14,7 @@
 ## 许可证
 
 请参阅各个 Agent 目录了解许可证信息。
+
+## 作者
+
+[sawyer-shi](https://github.com/sawyer-shi) - sawyer36@foxmail.com
