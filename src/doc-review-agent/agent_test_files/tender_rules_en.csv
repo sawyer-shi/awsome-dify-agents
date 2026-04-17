@@ -1,0 +1,7 @@
+﻿rule_code,rule_name,rule_level,rule_prompt
+R001,Bid Validity,high,Check whether bid validity is >= 120 days and clearly stated.
+R002,Performance Bond,high,Check whether performance bond is 10% and submission timeline is compliant.
+R003,Delay Damages,medium,Check whether delay damages ratio and cap are compliant with tender baseline.
+R004,Warranty Period,high,Check whether warranty period is no less than 24 months.
+R005,Payment Terms,medium,Check whether payment milestones and retention are balanced and complete.
+R006,Dispute Resolution,medium,Check whether governing law and dispute mechanism meet project requirements.
